@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Socket.io Timer</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; margin-top: 100px; }
+    #timer { font-size: 48px; }
+  </style>
+</head>
+<body>
+
+<h1>Timer</h1>
+<div id="timer"></div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  const socket = io();
+  const timerElement = document.getElementById('timer');
+
+  socket.on('timer', (timeLeft) => {
+    timerElement.textContent = timeLeft;
+  });
+</script>
+
+</body>
+</html>
